@@ -14,10 +14,19 @@
   margin-top: 60px;
 }
 
+.register-container input {
+  width: 100%;
+}
+
 .register-container textarea {
   resize: vertical;
   min-height: 140px;
   height: 60px;
+  width: 100%;
+}
+
+.register-container button {
+  width: 100%;
 }
 
 .register-container footer {

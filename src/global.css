@@ -26,7 +26,6 @@ h4 {
 }
 
 input, button, textarea {
-  width: 100%;
   color: #333;
   border: 1px solid #dcdce6;
   border-radius: 4px;

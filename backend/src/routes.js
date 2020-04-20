@@ -11,7 +11,7 @@ routes.post('/suggestions', celebrate({
   [Segments.BODY]: Joi.object().keys({
     name: Joi.string().required().min(3),
     suggestion: Joi.string().required().min(20),
-    phone: Joi.string(),
+    phone: Joi.optional(),
     date: Joi.string().required()
   })
 }), SuggestionController.create);

@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Emoji from '../../components/Emoji';
 import './styles.css';
 
+import api from '../../services/api';
+
 export default function Home() {
+  const [suggestions, setSuggestions] = useState([]);
+
+  useEffect(() => {
+    api.get('suggestions').then(response => {
+      setSuggestions(response.data);
+    })
+  }, [])
+
   const history = useHistory();
 
   return (
@@ -13,40 +23,13 @@ export default function Home() {
       <button onClick={() => { history.push('/Cadastro') }}>contribuir</button>
 
       <ul>
-        <li>
-          <h2>Gustavo Araujo</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
-
-        <li>
-          <h2>Laura Alves</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
-
-        <li>
-          <h2>Matheus Carvalho</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
-        <li>
-          <h2>Iago Silva</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
-
-        <li>
-          <h2>Erick Ribeiro</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
-
-        <li>
-          <h2>Alef Henrique</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p className="date">01/04/2020</p>
-        </li>
+        {suggestions.map(suggestion => (
+          <li key={suggestion.suggestion_id}>
+            <h2>{suggestion.name}</h2>
+            <p>{suggestion.suggestion}</p>
+            <p className="date">{suggestion.date}</p>
+          </li>
+        )).reverse()}
       </ul>
 
       <footer>

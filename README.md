@@ -16,7 +16,7 @@
 <br>
 
 <p align="center">
-  <img alt="Projeto" src="https://uploaddeimagens.com.br/images/002/607/491/original/pc.png?1587646118" width="100%">
+  <img alt="Projeto" src="https://uploaddeimagens.com.br/images/002/635/491/original/gif.gif?1588810342">
 </p>
 
 ## :rocket: Tecnologias
@@ -24,6 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Node.js](https://nodejs.org/en/)
 - [React](https://reactjs.org)
+- Banco SQL
 
 ## 💻 Projeto
 

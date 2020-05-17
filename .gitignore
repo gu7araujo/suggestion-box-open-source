@@ -24,3 +24,5 @@ yarn-error.log*
 
 backend/src/database/db.sqlite
 backend/src/database/testDB.sqlite
+
+app/.expo
